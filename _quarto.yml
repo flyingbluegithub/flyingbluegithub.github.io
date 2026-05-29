@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: docs
+  
+website:
+  page-navigation: true
+  title: "欧克莱"
+  site-url: https://flyingbluegithub.github.io
+  favicon: images/site-logo.png
+  repo-url: https://github.com/flyingbluegithub/flyingbluegithub.github.io
+  repo-actions: [edit, issue]
+  
+  page-footer:
+    left: |
+      [安全感制造所](https://mp.weixin.qq.com/mp/)<br>
+    right: |
+      Made with [Quarto](https://quarto.org/)<br>
+    
+  navbar: 
+    background: "#2c5282"
+    search: true
+    right: 
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Blogs"
+        href: blog.qmd
+      - text: "中文"
+        href: Chinese.qmd
+
+format:
+  html:
+    theme: styles.scss
+    toc: true            # 启用目录
+    toc-position: right  # 将目录放置在页面的右侧
+    toc-depth: 3         # 设置目录的深度，数字越大，目录越详细

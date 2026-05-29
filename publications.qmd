@@ -1,0 +1,9 @@
+---
+title: "Publications"
+---
+
+## 公众号精选
+
+- [HARP：多Agent系统里，一个Agent"中毒"会传染成什么样？]
+- [你的AI Agent装了个"技能"，可能正在偷你的API Key]
+- [MIRAGE：手机屏幕上的Prompt注入，比你想象的更危险]

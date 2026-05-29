@@ -1,0 +1,41 @@
+---
+title: "欧克莱"
+image: images/大头照.JPG
+about:
+  id: hero-heading
+  template: trestles
+  image-width: 12em
+  image-shape: round
+  links:
+    - icon: mailbox
+      text: aouclaire@outlook.com
+      href: mailto:aouclaire@outlook.com
+    - icon: github
+      text: flyingbluegithub
+      href: https://github.com/flyingbluegithub
+    - icon: brands weixin
+      text: 安全感制造所
+      href: https://mp.weixin.qq.com/mp/
+---
+
+::: {#hero-heading}
+
+某世界五百强企业数智安全负责人。20年从业经验的IT人，家有两娃。
+
+从合规、审计这些"不性感"的小事做起，逐步在组织中建立安全影响力。坚信安全不是合规花销，而是实实在在保护业务价值——**钱在哪，安全就在哪**。
+
+经历了安全行业的完整演变：
+- 从政策驱动但技术手段缺失的"摆设期"
+- 到有技术手段但无法翻译成业务语言的"孤岛期"
+- 到现在，致力于将安全语言翻译成业务语言，让安全真正坐在业务谈判桌上
+
+运营个人公众号 **「安全感制造所」**，专注安全从业者的职业成长与行业洞察。
+
+## Background
+
+- Present: 数智安全负责人，某世界五百强企业
+- 20+ years in IT & Security industry
+- CISO, 业务风控，AI Agent 安全
+- 关注领域：企业安全架构、业务风控、AI安全治理、安全团队管理
+
+:::

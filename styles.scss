@@ -1,0 +1,48 @@
+/*-- scss:defaults --*/
+
+/* 主题颜色定义 */
+$theme-navy: #1a365d;
+$theme-navy-light: #2c5282;
+$theme-blue: #3182ce;
+$theme-blue-light: #63b3ed;
+$theme-blue-pale: #ebf4ff;
+
+$body-bg: white;
+$body-color: #2d3748;
+$headings-color: $theme-navy;
+
+/* 导航栏 */
+$navbar-bg: $theme-navy-light;
+$navbar-fg: white;
+$navbar-hl: $theme-blue-light;
+
+/* 链接 */
+$link-color: $theme-blue;
+$link-hover-color: $theme-navy-light;
+
+/* 代码块 */
+$code-color: #c7254e;
+$code-bg: #f9f2f4;
+
+/* 引用块 */
+$blockquote-border-color: $theme-blue;
+
+/* 页脚 */
+$footer-bg: $theme-navy;
+$footer-fg: #cbd5e0;
+
+/*-- scss:rules --*/
+
+/* 自定义样式 */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+}
+
+.about-image {
+  border: 3px solid $theme-blue-light;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

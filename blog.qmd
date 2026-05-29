@@ -1,0 +1,27 @@
+---
+title: "Blogs"
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+我在公众号 **「安全感制造所」** 上持续分享安全从业者的职业成长与行业洞察。
+
+写作对我来说，不仅是输出，更是深度思考的方式。把复杂的安全问题压缩到基本概念，再用读者能理解的语言表达出来——这个过程本身就是最好的学习。
+
+## 精选文章
+
+- [HARP：多Agent系统里，一个Agent"中毒"会传染成什么样？](https://mp.weixin.qq.com/)
+- [你的AI Agent装了个"技能"，可能正在偷你的API Key](https://mp.weixin.qq.com/)
+- [MIRAGE：手机屏幕上的Prompt注入，比你想象的更危险](https://mp.weixin.qq.com/)
+- [当安全开始管营销：一个CISO的业务安全实践](https://mp.weixin.qq.com/)
+- [安全人最值钱的能力是"翻译"](https://mp.weixin.qq.com/)
+- [为什么我说数智安全是下个十年](https://mp.weixin.qq.com/)
+- [你投的100万广告费，50万被机器人看了](https://mp.weixin.qq.com/)
+- [薅羊毛背后的产业链](https://mp.weixin.qq.com/)
+
+> 更多文章请关注公众号 **「安全感制造所」**
+
+## 与安全从业者共勉
+
+- 连玉君, 2025, [如何借助 AI 工具来伴读一篇理论类的论文？](https://www.lianxh.cn/details/1571.html)
