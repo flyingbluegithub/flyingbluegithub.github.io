@@ -1,299 +1,372 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>欧克莱</title>
 <style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em;
-  vertical-align: middle;
-}
-</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/site-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-fe8e7e522ae82dd820442a7d00205796.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5df277ab798583035ee15cc21a835e6a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-
-<style>
+  /* ============================================
+     全局重置 & 字体
+     ============================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
   :root {
-    --theme-navy: #1a365d;
-    --theme-navy-light: #2c5282;
-    --theme-blue: #3182ce;
-    --theme-blue-light: #63b3ed;
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --border: #e5e7eb;
+    --card-radius: 12px;
+    --max-width: 680px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+    --font-mono: "SF Mono", "Fira Code", monospace;
   }
+
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  
   body {
-    color: #2d3748;
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
   }
-  .navbar {
-    background-color: var(--theme-navy-light) !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  /* ============================================
+     容器
+     ============================================ */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 48px 24px 80px;
   }
-  .navbar .navbar-title,
-  .navbar .nav-link {
-    color: white !important;
+
+  /* ============================================
+     头部 — 头像 + 签名
+     ============================================ */
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
   }
-  .navbar .nav-link:hover,
-  .navbar .nav-link.active {
-    color: var(--theme-blue-light) !important;
-  }
-  .about-image {
-    border: 3px solid var(--theme-blue-light);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  .header-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
     object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   }
-  .about-link {
-    color: var(--theme-blue) !important;
+
+  .header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
   }
-  .about-link:hover {
-    color: var(--theme-navy-light) !important;
+
+  .header .handle {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: 16px;
   }
-  .page-footer {
-    background-color: var(--theme-navy);
-    color: #cbd5e0;
+
+  .header .bio {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 480px;
+    line-height: 1.7;
   }
-  a {
-    color: var(--theme-blue);
+
+  .header .bio em {
+    font-style: italic;
+    color: var(--text-primary);
   }
-  a:hover {
-    color: var(--theme-navy-light);
+
+  /* ============================================
+     社交链接
+     ============================================ */
+  .social-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
   }
-  h1, h2, h3 {
-    color: var(--theme-navy);
+
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .social-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .social-links a svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ============================================
+     分类标签
+     ============================================ */
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* ============================================
+     作品卡片
+     ============================================ */
+  .card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 20px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+
+  .card-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .card-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* ============================================
+     文章列表
+     ============================================ */
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+
+  .article {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+
+  .article:last-child {
+    border-bottom: none;
+  }
+
+  .article-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .article h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .article h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .article h3 a:hover {
+    color: var(--accent);
+  }
+
+  .article-excerpt {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ============================================
+     页脚
+     ============================================ */
+  .footer {
+    text-align: center;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+  .footer a:hover {
+    color: var(--accent);
+  }
+
+  /* ============================================
+     移动端适配
+     ============================================ */
+  @media (max-width: 480px) {
+    .container { padding: 32px 16px 64px; }
+    .header-avatar { width: 80px; height: 80px; }
+    .header h1 { font-size: 22px; }
+    .card { padding: 16px 18px; }
+    .social-links { flex-wrap: wrap; }
   }
 </style>
-
 </head>
+<body>
 
-<body class="nav-fixed fullcontent">
+<div class="container">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">欧克莱</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
-<span class="menu-text">Blogs</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Chinese.html"> 
-<span class="menu-text">中文</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="images/大头照.JPG" class="about-image
-  round " style="height: 12em; width: 12em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">欧克莱</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="mailto:aouclaire@outlook.com" class="about-link" rel="" target="">
-    <i class="bi bi-mailbox"></i>
-     <span class="about-link-text">aouclaire@outlook.com</span>
-  </a>
-  <a href="https://github.com/flyingbluegithub" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">flyingbluegithub</span>
-  </a>
-  <a href="https://mp.weixin.qq.com/" class="about-link" rel="" target="">
-    <i class="bi bi-chat-dots"></i>
-     <span class="about-link-text">安全感制造所</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><div id="hero-heading">
-
-<p>某世界五百强企业数智安全负责人。20年从业经验的IT人，家有两娃。</p>
-
-<p>从合规、审计这些"不性感"的小事做起，逐步在组织中建立安全影响力。坚信安全不是合规花销，而是实实在在保护业务价值——<strong>钱在哪，安全就在哪</strong>。</p>
-
-<p>经历了安全行业的完整演变：从政策驱动但技术手段缺失的"摆设期"，到有技术手段但无法翻译成业务语言的"孤岛期"，到现在，致力于将安全语言翻译成业务语言，让安全真正坐在业务谈判桌上。</p>
-
-<p>运营个人公众号 <strong>「安全感制造所」</strong>，专注安全从业者的职业成长与行业洞察。</p>
-
-<section id="background" class="level2">
-<h2 data-anchor-id="background">Background</h2>
-<ul>
-<li>Present: 数智安全负责人，某世界五百强企业</li>
-<li>20+ years in IT &amp; Security industry</li>
-<li>CISO, 业务风控，AI Agent 安全</li>
-<li>关注领域：企业安全架构、业务风控、AI安全治理、安全团队管理</li>
-</ul>
-</section>
-
-</div></div>
-</div>
-
-
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  window.addEventListener("hashchange", function () {
-    if (window.location.hash === "") {
-      window.scrollTo(0, 0);
-    }
-  })
-  const btnSkipLink = window.document.querySelector("[data-role='skip-link']");
-  btnSkipLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    window.scrollTo(0, 0);
-  });
-  const tabsets = window.document.querySelectorAll(".panel-tabset-tabby");
-  tabsets.forEach(function(tabset) {
-    const tabButton = tabset.querySelector(".panel-tabset-tabby > li:first-child .tabby-tab");
-    if (tabButton) tabButton.click();
-  });
-  const toggleCenter = (e) => {
-    if (e.target.tagName === 'svg' || e.target.tagName === 'use') {
-      e.preventDefault();
-    }
-  }
-  window.document.querySelectorAll("a[href^='#']").forEach(el => {
-    el.addEventListener('click', toggleCenter);
-  });
-  const setPageTheme = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    const bodyEl = window.document.querySelector("body");
-    const theme = bsSheetEl.getAttribute("data-mode");
-    bodyEl.classList.remove("quarto-light", "quarto-dark");
-    bodyEl.classList.add(theme === "dark" ? "quarto-dark" : "quarto-light");
-  }
-  setPageTheme();
-  window.addEventListener("quartotabboot", setPageTheme);
-  const tooltipTriggerList = window.document.querySelectorAll('[data-bs-toggle="tooltip"]');
-  for (let i = 0; i < tooltipTriggerList.length; i++) {
-    const tooltipTrigger = tooltipTriggerList[i];
-    const tooltip = new bootstrap.Tooltip(tooltipTrigger, {
-      html: true,
-      sanitize: false
-    });
-  }
-});
-</script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="page-footer">
-    <div class="page-footer-left">
-      安全感制造所
+  <!-- ============ 头部 ============ -->
+  <header class="header">
+    <img src="images/大头照.JPG" alt="欧克莱" class="header-avatar">
+    <h1>欧 克 莱</h1>
+    <div class="handle">@oukelai</div>
+    <p class="bio">
+      某世界五百强企业数智安全负责人。20年从业，家有两娃。<br>
+      <em>"钱在哪，安全就在哪。"</em>
+    </p>
+    <div class="social-links">
+      <a href="mailto:aouclaire@outlook.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        邮箱
+      </a>
+      <a href="https://github.com/flyingbluegithub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://mp.weixin.qq.com/">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.046c.134 0 .24-.11.24-.245 0-.06-.024-.12-.04-.178l-.325-1.233a.49.49 0 01.177-.554C23.028 18.48 24 16.82 24 14.98c0-3.21-2.931-5.787-7.062-6.122zm-2.18 2.768c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.36 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z"/></svg>
+        安全感制造所
+      </a>
     </div>
-    <div class="page-footer-right">
-      Made with Quarto
+  </header>
+
+  <!-- ============ 精选作品 ============ -->
+  <section>
+    <div class="section-label">SELECTED WORKS // 精选</div>
+    <div class="card-grid">
+      <a class="card" href="https://flyingbluegithub.github.io/">
+        <div class="card-title">个人主页 v1</div>
+        <div class="card-desc">基于 Quarto 构建的个人主页，展示作品与思考。</div>
+        <div class="card-meta">
+          <span class="card-tag">网站</span>
+          <span>2025.05</span>
+        </div>
+      </a>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <!-- ============ 最新文章 ============ -->
+  <section>
+    <div class="section-label">LATEST WRITINGS // 最新文章</div>
+    <div class="article-list">
+      <div class="article">
+        <div class="article-meta">2025.05.29 · 5 MIN READ</div>
+        <h3><a href="https://mp.weixin.qq.com/">HARP：多Agent系统里，一个Agent"中毒"会传染成什么样？</a></h3>
+        <p class="article-excerpt">多Agent系统的架构设计，本质上是在做解耦——但这也引入了一个传播风险。HARP 告诉你伤害如何沿着调用链逐级放大。</p>
+      </div>
 
+      <div class="article">
+        <div class="article-meta">2025.05.29 · 6 MIN READ</div>
+        <h3><a href="https://mp.weixin.qq.com/">你的AI Agent装了个"技能"，可能正在偷你的API Key</a></h3>
+        <p class="article-excerpt">Snyk 分析了 3,984 个 Agent 技能，发现 76 个恶意 payload。13.4% 的技能含有致命安全问题。</p>
+      </div>
 
-</body></html>
+      <div class="article">
+        <div class="article-meta">2025.05.29 · 4 MIN READ</div>
+        <h3><a href="https://mp.weixin.qq.com/">MIRAGE：手机屏幕上的Prompt注入，比你想象的更危险</a></h3>
+        <p class="article-excerpt">Mobile GUI Agent 无法区分可信界面元素和用户生成内容。攻击者只需在评论区发一条带注入指令的文字。</p>
+      </div>
+
+      <div class="article">
+        <div class="article-meta">2025.05 · 8 MIN READ</div>
+        <h3><a href="https://mp.weixin.qq.com/">当安全开始管营销：一个CISO的业务安全实践</a></h3>
+        <p class="article-excerpt">钱在哪，安全就在哪。从合规到业务安全的跨越，是一个CISO真正坐稳谈判桌的关键一步。</p>
+      </div>
+
+      <div class="article">
+        <div class="article-meta">2025.04 · 5 MIN READ</div>
+        <h3><a href="https://mp.weixin.qq.com/">安全人最值钱的能力是"翻译"</a></h3>
+        <p class="article-excerpt">你有技术手段了，检测出问题也没人在乎——因为你没法把技术语言翻译成业务语言。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <p>
+      <a href="https://github.com/flyingbluegithub">GitHub</a> · 
+      <a href="https://mp.weixin.qq.com/">公众号：安全感制造所</a> · 
+      <a href="mailto:aouclaire@outlook.com">aouclaire@outlook.com</a>
+    </p>
+    <p style="margin-top: 8px;">© 2025 欧克莱 · Made with care</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,123 +1,171 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blogs — 欧克莱</title>
 <style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-</style>
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/site-logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-fe8e7e522ae82dd820442a7d00205796.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5df277ab798583035ee15cc21a835e6a.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search"
-  }
-}</script>
-
-<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --theme-navy: #1a365d;
-    --theme-navy-light: #2c5282;
-    --theme-blue: #3182ce;
-    --theme-blue-light: #63b3ed;
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --accent: #2563eb;
+    --border: #e5e7eb;
+    --max-width: 680px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
   }
-  body { color: #2d3748; }
-  .navbar { background-color: var(--theme-navy-light) !important; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-  .navbar .navbar-title, .navbar .nav-link { color: white !important; }
-  .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--theme-blue-light) !important; }
-  a { color: var(--theme-blue); }
-  a:hover { color: var(--theme-navy-light); }
-  h1, h2, h3 { color: var(--theme-navy); }
-  .page-footer { background-color: var(--theme-navy); color: #cbd5e0; padding: 1em; text-align: center; font-size: 0.85em; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.8;
+  }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 48px 24px 80px; }
+  a { color: var(--accent); text-decoration: none; }
+
+  .nav {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .nav a:hover { color: var(--accent); text-decoration: none; }
+  .nav a.active { color: var(--text-primary); }
+
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+  .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .article {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+  .article:last-child { border-bottom: none; }
+  .article-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-family: var(--font-sans);
+  }
+  .article h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .article h3 a { color: var(--text-primary); }
+  .article h3 a:hover { color: var(--accent); }
+  .article-excerpt {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .footer a { color: var(--text-secondary); }
+  .footer a:hover { color: var(--accent); }
+
+  @media (max-width: 480px) {
+    .container { padding: 32px 16px 64px; }
+  }
 </style>
-
 </head>
+<body>
+<div class="container">
 
-<body class="nav-fixed">
+  <nav class="nav">
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./blog.html" class="active">Blogs</a>
+    <a href="./Chinese.html">中文</a>
+  </nav>
 
-<div id="quarto-search-results"></div>
-<header id="quarto-header" class="headroom fixed-top">
-<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-<div class="navbar-container container-fluid">
-<div class="navbar-brand-container mx-auto">
-<a class="navbar-brand" href="./index.html"><span class="navbar-title">欧克莱</span></a>
+  <h1>Blogs</h1>
+  <p class="subtitle">公众号「安全感制造所」精选文章 · 安全从业者的职业成长与行业洞察</p>
+
+  <div class="article-list">
+
+    <div class="article">
+      <div class="article-meta">2025.05.29 · 5 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">HARP：多Agent系统里，一个Agent"中毒"会传染成什么样？</a></h3>
+      <p class="article-excerpt">多Agent系统的架构设计，本质上是在做解耦——但这也引入了一个传播风险。一个Agent的输出会成为另一个Agent的输入，伤害沿着调用链逐级放大。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05.29 · 6 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">你的AI Agent装了个"技能"，可能正在偷你的API Key</a></h3>
+      <p class="article-excerpt">Snyk 分析了 3,984 个 Agent 技能，挖出 76 个恶意 payload，13.4% 的技能含致命安全问题。技能市场是AI时代的"野生App Store"。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05.29 · 4 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">MIRAGE：手机屏幕上的Prompt注入，比你想象的更危险</a></h3>
+      <p class="article-excerpt">Mobile GUI Agent 无法区分可信界面元素和用户生成内容。攻击者只需在评论区发一条带注入指令的文字——你的Agent就被挟持了。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05 · 8 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">当安全开始管营销：一个CISO的业务安全实践</a></h3>
+      <p class="article-excerpt">钱在哪，安全就在哪。从合规到业务安全的跨越，是一个CISO真正坐稳谈判桌的关键一步。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05 · 5 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">安全人最值钱的能力是"翻译"</a></h3>
+      <p class="article-excerpt">你有技术手段了，检测出问题也没人在乎——因为你没法把技术语言翻译成业务语言。You cannot find a place at the table。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05 · 6 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">为什么我说数智安全是下个十年</a></h3>
+      <p class="article-excerpt">当安全从"成本中心"变成"价值中心"，CISO的角色正在被重新定义。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05 · 5 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">你投的100万广告费，50万被机器人看了</a></h3>
+      <p class="article-excerpt">Ad fraud 正在吞噬营销预算。业务风控不仅仅是安全团队的事，也是营销团队的事。</p>
+    </div>
+
+    <div class="article">
+      <div class="article-meta">2025.05 · 4 MIN READ</div>
+      <h3><a href="https://mp.weixin.qq.com/">薅羊毛背后的产业链</a></h3>
+      <p class="article-excerpt">从接码平台到设备农场到任务众包——一条完整的黑产产业链解剖。</p>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <a href="https://github.com/flyingbluegithub">GitHub</a> · 
+    <a href="https://mp.weixin.qq.com/">公众号：安全感制造所</a> · 
+    <a href="mailto:aouclaire@outlook.com">aouclaire@outlook.com</a>
+  </footer>
+
 </div>
-<div id="quarto-search" title="Search"></div>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarCollapse">
-<ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item"><a class="nav-link" href="./index.html"><span class="menu-text">Home</span></a></li>
-<li class="nav-item"><a class="nav-link" href="./about.html"><span class="menu-text">About</span></a></li>
-<li class="nav-item"><a class="nav-link active" href="./blog.html"><span class="menu-text">Blogs</span></a></li>
-<li class="nav-item"><a class="nav-link" href="./Chinese.html"><span class="menu-text">中文</span></a></li>
-</ul>
-</div>
-</div>
-</nav>
-</header>
-
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<main class="content" id="quarto-document-content">
-
-<h1>Blogs</h1>
-
-<p>我在公众号 <strong>「安全感制造所」</strong> 上持续分享安全从业者的职业成长与行业洞察。</p>
-
-<p>写作对我来说，不仅是输出，更是深度思考的方式。把复杂的安全问题压缩到基本概念，再用读者能理解的语言表达出来——这个过程本身就是最好的学习。</p>
-
-<h2>精选文章</h2>
-<ul>
-<li><a href="https://mp.weixin.qq.com/">HARP：多Agent系统里，一个Agent"中毒"会传染成什么样？</a></li>
-<li><a href="https://mp.weixin.qq.com/">你的AI Agent装了个"技能"，可能正在偷你的API Key</a></li>
-<li><a href="https://mp.weixin.qq.com/">MIRAGE：手机屏幕上的Prompt注入，比你想象的更危险</a></li>
-<li><a href="https://mp.weixin.qq.com/">当安全开始管营销：一个CISO的业务安全实践</a></li>
-<li><a href="https://mp.weixin.qq.com/">安全人最值钱的能力是"翻译"</a></li>
-<li><a href="https://mp.weixin.qq.com/">为什么我说数智安全是下个十年</a></li>
-<li><a href="https://mp.weixin.qq.com/">你投的100万广告费，50万被机器人看了</a></li>
-<li><a href="https://mp.weixin.qq.com/">薅羊毛背后的产业链</a></li>
-</ul>
-
-<p><strong>更多文章请关注公众号「安全感制造所」</strong></p>
-
-</main>
-</div>
-
-<footer class="footer">
-<div class="page-footer">
-<div class="page-footer-left">安全感制造所</div>
-<div class="page-footer-right">Made with Quarto</div>
-</div>
-</footer>
-
-</body></html>
+</body>
+</html>
