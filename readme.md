@@ -1,4 +1,4 @@
-This is the personal homepage of 欧克莱.
+This is the personal homepage of Claire.
 
 Built with [Quarto](https://quarto.org/) and hosted on GitHub Pages.
 

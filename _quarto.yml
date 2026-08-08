@@ -4,7 +4,7 @@ project:
   
 website:
   page-navigation: true
-  title: "欧克莱"
+  title: "Claire"
   site-url: https://flyingbluegithub.github.io
   favicon: images/site-logo.png
   repo-url: https://github.com/flyingbluegithub/flyingbluegithub.github.io
