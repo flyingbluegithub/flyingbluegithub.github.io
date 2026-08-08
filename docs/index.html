@@ -93,6 +93,47 @@
     color: var(--text-primary);
   }
 
+  .expertise {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .expertise span {
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .course-feature {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    align-items: center;
+    background: #081827;
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 48px;
+    overflow: hidden;
+  }
+
+  .course-feature img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .course-feature h2 { font-size: 22px; line-height: 1.35; margin-bottom: 10px; }
+  .course-feature p { color: #b9c8d8; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .course-feature .course-meta { color: #d8ff43; font: 600 11px var(--font-mono); letter-spacing: 1px; margin-bottom: 8px; }
+  .course-feature a { display: inline-block; color: #081827; background: #d8ff43; padding: 9px 14px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 700; }
+
   /* ============================================
      社交链接
      ============================================ */
@@ -273,6 +314,8 @@
     .header h1 { font-size: 22px; }
     .card { padding: 16px 18px; }
     .social-links { flex-wrap: wrap; }
+    .course-feature { grid-template-columns: 1fr; }
+    .course-feature img { max-height: 360px; object-fit: cover; object-position: top; }
   }
 </style>
 </head>
@@ -283,12 +326,16 @@
   <!-- ============ 头部 ============ -->
   <header class="header">
     <img src="images/大头照.JPG" alt="Claire" class="header-avatar">
-    <h1>欧 克 莱</h1>
-    <div class="handle">@oukelai</div>
+    <h1>Claire</h1>
+    <div class="handle">@flyingbluegithub</div>
     <p class="bio">
-      某世界五百强企业数智安全负责人。20年从业，家有两娃。<br>
+      世界500强企业中华区信息安全负责人<br>
+      20年IT与数字化安全经验<br>
       <em>"让安全真正服务于业务发展。"</em>
     </p>
+    <div class="expertise" aria-label="专业领域">
+      <span>企业安全治理</span><span>数字化风险</span><span>AI安全</span><span>安全文化与科普</span>
+    </div>
     <div class="social-links">
       <a href="mailto:aouclaire@outlook.com">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -304,6 +351,20 @@
       </a>
     </div>
   </header>
+
+  <!-- ============ 青少年网络安全科普 ============ -->
+  <section>
+    <div class="section-label">CYBER EDUCATION // 青少年网络安全科普</div>
+    <div class="course-feature">
+      <img src="images/cyberlab-course-poster.png" alt="黑客视角下的网络安全攻防课程海报">
+      <div>
+        <div class="course-meta">45分钟 · 互动闯关 · 迷你夺旗赛</div>
+        <h2>黑客视角下的网络安全攻防</h2>
+        <p>面向青少年的互动博雅课程。通过密码实验、钓鱼识别、纵深防御搭建和迷你夺旗赛，在安全、封闭的模拟环境中学习保护账号、设备与个人信息。</p>
+        <a href="http://cyberlab.aoutech.uk/">进入互动课堂 →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 精选作品 ============ -->
   <section>
@@ -410,7 +471,7 @@
       <a href="https://mp.weixin.qq.com/">公众号：安全感制造所</a> · 
       <a href="mailto:aouclaire@outlook.com">aouclaire@outlook.com</a>
     </p>
-    <p style="margin-top: 8px;">© 2025 Claire · Made with care</p>
+    <p style="margin-top: 8px;">© 2026 Claire · Made with care</p>
   </footer>
 
 </div>
